@@ -129,6 +129,8 @@ if (exists('+colorcolumn'))
     set colorcolumn=80
     highlight ColorColumn ctermbg=1
 endif
+" Set textwidth
+set textwidth=80
 
 " set invi characters
 set listchars=eol:¬,tab:>·,trail:~,extends:>,precedes:<,space:␣ 
@@ -152,6 +154,34 @@ endif
 set clipboard=unnamed
 " for Linux
 " set clipboard=unnamedplus
+
+" ------------------------------------------------------------
+" Save current session and load as default
+" ------------------------------------------------------------
+function! MakeSession()
+    let b:sessiondir = $HOME . "/.vim/sessions" . getcwd()
+    if (filewritable(b:sessiondir) != 2)
+        exe 'silent !mkdir -p ' b:sessiondir
+        redraw!
+    endif
+    let b:filename = b:sessiondir . '/session.vim'
+    exe "mksession! " . b:filename
+endfunction
+
+function! LoadSession()
+    let b:sessiondir = $HOME . "/.vim/sessions" . getcwd()
+    let b:sessionfile = b:sessiondir . "/session.vim"
+    if (filereadable(b:sessionfile))
+        exe 'source ' b:sessionfile
+    else
+        echo "No session loaded."
+    endif
+endfunction
+
+au VimEnter * nested :call LoadSession()
+au VimLeave * :call MakeSession()
+" ------------------------------------------------------------
+
 " ------------------------------------------------------------
 " COLOR THEME
 " ------------------------------------------------------------
@@ -165,6 +195,11 @@ syntax enable
 
 " https://github.com/rakr/vim-one
 let g:airline_theme='wombat'
+
+" list all buffers
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#left_sep = ' '
+let g:airline#extensions#tabline#left_alt_sep = '|'
 " colorscheme one-dark
 " set background=dark
 "
