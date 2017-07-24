@@ -147,6 +147,12 @@ if has("gui_running")
     endif
 endif
 " ------------------------------------------------------------
+"  Make vim clipboard as system clipboard
+"  only works for MacOS and Windows
+set clipboard=unnamed
+" for Linux
+" set clipboard=unnamedplus
+" ------------------------------------------------------------
 " COLOR THEME
 " ------------------------------------------------------------
 " -- solarized personal conf
