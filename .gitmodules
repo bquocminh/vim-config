@@ -1,18 +1,1 @@
-[submodule "pack/plugin/start/nerdtree"]
-	path = pack/plugin/start/nerdtree
-	url = git@github.com:scrooloose/nerdtree.git
-[submodule "pack/plugin/start/indentLine"]
-	path = pack/plugin/start/indentLine
-	url = git@github.com:Yggdroot/indentLine.git
-[submodule "pack/plugin/start/vim-airline"]
-	path = pack/plugin/start/vim-airline
-	url = git@github.com:vim-airline/vim-airline.git
-[submodule "pack/plugin/start/vim-airline-themes"]
-	path = pack/plugin/start/vim-airline-themes
-	url = git@github.com:vim-airline/vim-airline-themes.git
-[submodule "pack/plugin/start/ctrlp.vim"]
-	path = pack/plugin/start/ctrlp.vim
-	url = git@github.com:ctrlpvim/ctrlp.vim.git
-[submodule "pack/plugin/start/SimpylFold"]
-	path = pack/plugin/start/SimpylFold
-	url = git@github.com:tmhedberg/SimpylFold.git
+

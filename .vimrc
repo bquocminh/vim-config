@@ -1,5 +1,6 @@
 "------------------------------------------------------------
-" For add or update plugins, please see https://gist.github.com/manasthakur/ab4cf8d32a28ea38271ac0d07373bb53 
+" For add or update plugins, please see 
+" https://gist.github.com/manasthakur/ab4cf8d32a28ea38271ac0d07373bb53 
 "------------------------------------------------------------
 " Set 'nocompatible' to ward off unexpected things that your distro might
 " have made, as well as sanely reset options when re-sourcing .vimrc
@@ -23,7 +24,6 @@ syntax on
 " try to quit without saving, and swap files will keep you safe if your computer
 " crashes.
 set hidden
-
 " Note that not everyone likes working this way (with the hidden option).
 " Alternatives include using tabs or split windows instead of re-using the same
 " window as mentioned above, and/or either of the following options:
@@ -130,8 +130,8 @@ if (exists('+colorcolumn'))
     highlight ColorColumn ctermbg=1
 endif
 " Set textwidth
-set textwidth=80
-
+"set textwidth=80
+set wrap
 " set invi characters
 set listchars=eol:¬,tab:>·,trail:~,extends:>,precedes:<,space:␣ 
 
@@ -183,6 +183,21 @@ au VimLeave * :call MakeSession()
 " ------------------------------------------------------------
 
 " ------------------------------------------------------------
+"  Vim plugins
+" ------------------------------------------------------------
+call plug#begin('~/.vim/plugged')
+
+Plug 'tmhedberg/SimpylFold'
+Plug 'kien/ctrlp.vim'
+Plug 'Yggdroot/indentLine'
+Plug 'scrooloose/nerdtree'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+"Plug 'vim-ctrlspace/vim-ctrlspace'
+
+call plug#end()
+
+" ------------------------------------------------------------
 " COLOR THEME
 " ------------------------------------------------------------
 " -- solarized personal conf
@@ -200,6 +215,8 @@ let g:airline_theme='wombat'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#left_sep = ' '
 let g:airline#extensions#tabline#left_alt_sep = '|'
+
+" ------------------------------------------------------------
 " colorscheme one-dark
 " set background=dark
 "
@@ -217,6 +234,21 @@ let g:indentLine_bufNameExclude=['_.*', 'NERD_tree.*']
 "  Goal: for Python code folding
 " ------------------------------------------------------------
 let g:SimpylFold_docstring_preview=1
+" ------------------------------------------------------------
+
+" ------------------------------------------------------------
+"  CtrlSpace
+"  Tabs and Buffers management
+" ------------------------------------------------------------
+"let g:CtrlSpaceLoadLastWorkspaceOnStart = 1
+"let g:CtrlSpaceSaveWorkspaceOnSwitch = 1
+"let g:CtrlSpaceSaveWorkspaceOnExit = 1
+"
+"" For better symbols in CtrlSpace (if use MacVim)
+"if has("gui_running")
+"        " Settings for MacVim and Inconsolata font
+"        let g:CtrlSpaceSymbols = { "File": "◯", "CTab": "▣", "Tabs": "▢" }
+"endif
 " ------------------------------------------------------------
 
 " ------------------------------------------------------------
