@@ -148,6 +148,8 @@ if has("gui_running")
         set guifont=Consolas:h14:cANSI
     endif
 endif
+
+set guifont=Incosolata\ 15
 " ------------------------------------------------------------
 "  Make vim clipboard as system clipboard
 "  only works for MacOS and Windows
@@ -158,42 +160,55 @@ set clipboard=unnamed
 " ------------------------------------------------------------
 " Save current session and load as default
 " ------------------------------------------------------------
-function! MakeSession()
-    let b:sessiondir = $HOME . "/.vim/sessions" . getcwd()
-    if (filewritable(b:sessiondir) != 2)
-        exe 'silent !mkdir -p ' b:sessiondir
-        redraw!
-    endif
-    let b:filename = b:sessiondir . '/session.vim'
-    exe "mksession! " . b:filename
-endfunction
-
-function! LoadSession()
-    let b:sessiondir = $HOME . "/.vim/sessions" . getcwd()
-    let b:sessionfile = b:sessiondir . "/session.vim"
-    if (filereadable(b:sessionfile))
-        exe 'source ' b:sessionfile
-    else
-        echo "No session loaded."
-    endif
-endfunction
-
-au VimEnter * nested :call LoadSession()
-au VimLeave * :call MakeSession()
-" ------------------------------------------------------------
+" function! MakeSession()
+"     let b:sessiondir = $HOME . "/.vim/sessions" . getcwd()
+"     if (filewritable(b:sessiondir) != 2)
+"         exe 'silent !mkdir -p ' b:sessiondir
+"         redraw!
+"     endif
+"     let b:filename = b:sessiondir . '/session.vim'
+"     exe "mksession! " . b:filename
+" endfunction
+" 
+" function! LoadSession()
+"     let b:sessiondir = $HOME . "/.vim/sessions" . getcwd()
+"     let b:sessionfile = b:sessiondir . "/session.vim"
+"     if (filereadable(b:sessionfile))
+"         exe 'source ' b:sessionfile
+"     else
+"         echo "No session loaded."
+"     endif
+" endfunction
+" 
+" au VimEnter * nested :call LoadSession()
+" au VimLeave * :call MakeSession()
+" " ------------------------------------------------------------
 
 " ------------------------------------------------------------
 "  Vim plugins
 " ------------------------------------------------------------
 call plug#begin('~/.vim/plugged')
 
+" Folding code
 Plug 'tmhedberg/SimpylFold'
+
+" Ctrl P for lazzy search inside project
 Plug 'kien/ctrlp.vim'
+
+" produre a line for each tab (4 spaces)
 Plug 'Yggdroot/indentLine'
+
 Plug 'scrooloose/nerdtree'
+
+" status bar for vim
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+
+" naming tabs (not use)
 "Plug 'vim-ctrlspace/vim-ctrlspace'
+
+" tmux theme for airline
+Plug 'edkolev/tmuxline.vim'
 
 call plug#end()
 
@@ -208,18 +223,51 @@ syntax enable
 " catch
 " endtry
 
+" always show status bar
+set laststatus=2
+
 " https://github.com/rakr/vim-one
 let g:airline_theme='wombat'
+
+if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+endif
 
 " list all buffers
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#left_sep = ' '
 let g:airline#extensions#tabline#left_alt_sep = '|'
+let g:airline_left_sep = '' "'»'
+let g:airline_left_sep = '' "'▶'
+let g:airline_right_sep = '' "'«'
+let g:airline_right_sep = '' "'◀'
+let g:airline_symbols.linenr = '␊'
+let g:airline_symbols.linenr = '␤'
+let g:airline_symbols.linenr = '¶'
+let g:airline_symbols.branch = '⎇'
+let g:airline_symbols.paste = 'ρ'
+let g:airline_symbols.paste = 'Þ'
+let g:airline_symbols.paste = '∥'
+let g:airline_symbols.whitespace = 'Ξ'
+
+let g:airline_powerline_font=1
+" ------------------------------------------------------------
+" colorscheme onedark
+" set background=dark
+" ------------------------------------------------------------
+"  tmuxline
+" ------------------------------------------------------------
+let g:tmuxline_powerline_separators = 0
+let g:airline_extensions#tmuxline#enabled=1
+
+let g:tmuxline_preset = {
+      \'a'    : '#S',
+      \'win'  : ['#I', '#W'],
+      \'cwin' : ['#I', '#W'],
+      \'x'    : '#(date)'}
 
 " ------------------------------------------------------------
-" colorscheme one-dark
-" set background=dark
-"
+
 " ------------------------------------------------------------
 " indentLine
 let g:indentLine_leadingSpaceChar='.'
@@ -251,4 +299,14 @@ let g:SimpylFold_docstring_preview=1
 "endif
 " ------------------------------------------------------------
 
+
+"if (empty($TMUX))
+"  if (has("nvim"))
+"    let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+"  endif
+"  if (has("termguicolors"))
+"    set termguicolors
+"  endif
+"endif
+colorscheme onedark
 " ------------------------------------------------------------
