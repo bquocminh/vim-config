@@ -1,6 +1,6 @@
 "------------------------------------------------------------
-" For add or update plugins, please see 
-" https://gist.github.com/manasthakur/ab4cf8d32a28ea38271ac0d07373bb53 
+" For add or update plugins, please see
+" https://gist.github.com/manasthakur/ab4cf8d32a28ea38271ac0d07373bb53
 "------------------------------------------------------------
 " Set 'nocompatible' to ward off unexpected things that your distro might
 " have made, as well as sanely reset options when re-sourcing .vimrc
@@ -133,7 +133,7 @@ endif
 "set textwidth=80
 set wrap
 " set invi characters
-set listchars=eol:¬,tab:>·,trail:~,extends:>,precedes:<,space:␣ 
+set listchars=eol:¬,tab:>·,trail:~,extends:>,precedes:<,space:␣
 
 " set font
 if has("gui_running")
@@ -169,7 +169,7 @@ set clipboard=unnamed
 "     let b:filename = b:sessiondir . '/session.vim'
 "     exe "mksession! " . b:filename
 " endfunction
-" 
+"
 " function! LoadSession()
 "     let b:sessiondir = $HOME . "/.vim/sessions" . getcwd()
 "     let b:sessionfile = b:sessiondir . "/session.vim"
@@ -179,7 +179,7 @@ set clipboard=unnamed
 "         echo "No session loaded."
 "     endif
 " endfunction
-" 
+"
 " au VimEnter * nested :call LoadSession()
 " au VimLeave * :call MakeSession()
 " " ------------------------------------------------------------
@@ -209,6 +209,12 @@ Plug 'vim-airline/vim-airline-themes'
 
 " tmux theme for airline
 Plug 'edkolev/tmuxline.vim'
+
+" git plugin inside vim
+Plug 'tpope/vim-fugitive'
+
+" check code syntax
+Plug 'scrooloose/syntastic'
 
 call plug#end()
 
@@ -282,6 +288,22 @@ let g:indentLine_bufNameExclude=['_.*', 'NERD_tree.*']
 "  Goal: for Python code folding
 " ------------------------------------------------------------
 let g:SimpylFold_docstring_preview=1
+" ------------------------------------------------------------
+
+" ------------------------------------------------------------
+"  Syntastic
+" ------------------------------------------------------------
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': [],'passive_filetypes': [] }
+let g:syntastic_error_symbol = "✗"
+let g:syntastic_warning_symbol = "⚠"
 " ------------------------------------------------------------
 
 " ------------------------------------------------------------
