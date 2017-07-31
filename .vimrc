@@ -216,6 +216,12 @@ Plug 'tpope/vim-fugitive'
 " check code syntax
 Plug 'scrooloose/syntastic'
 
+" auto format code
+Plug 'Chiel92/vim-autoformat'
+
+" Markdown preview
+Plug 'JamshedVesuna/vim-markdown-preview'
+
 call plug#end()
 
 " ------------------------------------------------------------
@@ -321,7 +327,19 @@ let g:syntastic_warning_symbol = "⚠"
 "endif
 " ------------------------------------------------------------
 
+" ------------------------------------------------------------
+"  vim-autoformat
+" ------------------------------------------------------------
+let g:formatterpath = ['/Users/BQM/anaconda2/bin/autopep8']
+" ------------------------------------------------------------
 
+" ------------------------------------------------------------
+"  vim-markdown-preview
+" ------------------------------------------------------------
+let vim_markdown_preview_github=1
+let vim_markdown_preview_browser='Google Chrome'
+let vim_markdown_preview_temp_file=1
+" ------------------------------------------------------------
 "if (empty($TMUX))
 "  if (has("nvim"))
 "    let $NVIM_TUI_ENABLE_TRUE_COLOR=1
