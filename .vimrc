@@ -222,6 +222,8 @@ Plug 'Chiel92/vim-autoformat'
 " Markdown preview
 Plug 'JamshedVesuna/vim-markdown-preview'
 
+Plug 'ervandew/supertab'
+
 call plug#end()
 
 " ------------------------------------------------------------
@@ -349,4 +351,12 @@ let vim_markdown_preview_temp_file=1
 "  endif
 "endif
 colorscheme onedark
+" ------------------------------------------------------------
+
+" ------------------------------------------------------------
+"  Auto fold comment
+" ------------------------------------------------------------
+set foldmethod=expr foldexpr=getline(v:lnum)=~'^\s*'.&commentstring[0]
+autocmd FileType c setlocal foldmethod=expr foldexpr=getline(v:lnum)=~'^\s*//'
+autocmd FileType python setlocal foldmethod=expr foldexpr=getline(v:lnum)=~'^\s*#'
 " ------------------------------------------------------------
