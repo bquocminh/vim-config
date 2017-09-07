@@ -12,7 +12,7 @@ set nocompatible
 filetype indent plugin on
 
 " Enable syntax highlighting
-let python_highlight_all=1
+" let python_highlight_all=1
 syntax on
 
 " One such option is the 'hidden' option, which allows you to re-use the same
@@ -130,7 +130,7 @@ if (exists('+colorcolumn'))
     highlight ColorColumn ctermbg=1
 endif
 " Set textwidth
-"set textwidth=80
+set textwidth=80
 set wrap
 " set invi characters
 set listchars=eol:¬,tab:>·,trail:~,extends:>,precedes:<,space:␣
@@ -223,6 +223,9 @@ Plug 'Chiel92/vim-autoformat'
 Plug 'JamshedVesuna/vim-markdown-preview'
 
 Plug 'ervandew/supertab'
+
+" vim Python
+Plug 'python-mode/python-mode'
 
 call plug#end()
 
@@ -356,7 +359,7 @@ colorscheme onedark
 " ------------------------------------------------------------
 "  Auto fold comment
 " ------------------------------------------------------------
-set foldmethod=expr foldexpr=getline(v:lnum)=~'^\s*'.&commentstring[0]
-autocmd FileType c setlocal foldmethod=expr foldexpr=getline(v:lnum)=~'^\s*//'
-autocmd FileType python setlocal foldmethod=expr foldexpr=getline(v:lnum)=~'^\s*#'
+"set foldmethod=expr foldexpr=getline(v:lnum)=~'^\s*'.&commentstring[0]
+"autocmd FileType c setlocal foldmethod=expr foldexpr=getline(v:lnum)=~'^\s*//'
+"autocmd FileType python setlocal foldmethod=expr foldexpr=getline(v:lnum)=~'^\s*#'
 " ------------------------------------------------------------
