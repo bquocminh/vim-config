@@ -132,6 +132,11 @@ endif
 " Set textwidth
 set textwidth=80
 set wrap
+set linebreak
+set nolist  " list disables linebreak
+set textwidth=0
+set wrapmargin=0
+
 " set invi characters
 set listchars=eol:¬,tab:>·,trail:~,extends:>,precedes:<,space:␣
 
@@ -226,6 +231,7 @@ Plug 'ervandew/supertab'
 
 " vim Python
 Plug 'python-mode/python-mode'
+
 
 call plug#end()
 
