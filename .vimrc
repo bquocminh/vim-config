@@ -232,6 +232,11 @@ Plug 'ervandew/supertab'
 " vim Python
 Plug 'python-mode/python-mode'
 
+" onedark
+Plug 'joshdick/onedark.vim'
+
+" taglist
+Plug 'vim-scripts/taglist.vim'
 
 call plug#end()
 
@@ -360,6 +365,8 @@ let vim_markdown_preview_temp_file=1
 "  endif
 "endif
 colorscheme onedark
+set background=dark
+hi Normal ctermbg=none
 " ------------------------------------------------------------
 
 " ------------------------------------------------------------
@@ -369,3 +376,22 @@ colorscheme onedark
 "autocmd FileType c setlocal foldmethod=expr foldexpr=getline(v:lnum)=~'^\s*//'
 "autocmd FileType python setlocal foldmethod=expr foldexpr=getline(v:lnum)=~'^\s*#'
 " ------------------------------------------------------------
+"  function! ToggleNerdtreeTagbar()
+
+"    " check if NERDTree and Tagbar are opened
+"    let NERDTree_close = (bufwinnr('NERD_tree') == -1) 
+"    let Tagbar_close   = (bufwinnr('__Tagbar__') == -1) 
+"
+"    TagbarToggle
+"    NERDTreeToggle
+"
+"    if NERDTree_close && Tagbar_close
+"        wincmd K
+"        wincmd b
+"        wincmd L
+"        wincmd h
+"        exe 'vertical resize 30'
+"    endif
+"
+"endfunction
+"nmap <C-e> :call ToggleNerdtreeTagbar()<CR>
