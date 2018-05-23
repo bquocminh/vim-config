@@ -113,6 +113,7 @@ set shiftwidth=4
 set softtabstop=4
 set expandtab
 
+set completeopt=menu
 "------------------------------------------------------------
 " Useful mappings
 
@@ -131,7 +132,6 @@ if (exists('+colorcolumn'))
 endif
 " Set textwidth
 set textwidth=80
-set wrap
 set linebreak
 set nolist  " list disables linebreak
 set textwidth=0
@@ -141,20 +141,20 @@ set wrapmargin=0
 set listchars=eol:¬,tab:>·,trail:~,extends:>,precedes:<,space:␣
 
 " set font
-if has("gui_running")
-    if has("gui_gtk3")
-        echo "Linux"
-        set guifont=Inconsolata\ 12
-    elseif has("gui_macvim")
-        echo "Mac OS"
-        set guifont=Menlo\ Regular:h14
-    elseif has("gui_win32")
-        echo "Win"
-        set guifont=Consolas:h14:cANSI
-    endif
-endif
-
-set guifont=Incosolata\ 15
+"if has("gui_running")
+"    if has("gui_gtk3")
+"        echo "Linux"
+"        set guifont=Inconsolata\ 12
+"    elseif has("gui_macvim")
+"        echo "Mac OS"
+"        set guifont=Menlo\ Regular:h14
+"    elseif has("gui_win32")
+"        echo "Win"
+"        set guifont=Consolas:h14:cANSI
+"    endif
+"endif
+"
+"set guifont=Incosolata\ 15
 " ------------------------------------------------------------
 "  Make vim clipboard as system clipboard
 "  only works for MacOS and Windows
@@ -216,7 +216,7 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'edkolev/tmuxline.vim'
 
 " git plugin inside vim
-Plug 'tpope/vim-fugitive'
+"Plug 'tpope/vim-fugitive'
 
 " check code syntax
 Plug 'scrooloose/syntastic'
@@ -225,7 +225,7 @@ Plug 'scrooloose/syntastic'
 Plug 'Chiel92/vim-autoformat'
 
 " Markdown preview
-Plug 'JamshedVesuna/vim-markdown-preview'
+"Plug 'JamshedVesuna/vim-markdown-preview'
 
 Plug 'ervandew/supertab'
 
@@ -236,8 +236,10 @@ Plug 'python-mode/python-mode'
 Plug 'joshdick/onedark.vim'
 
 " taglist
-Plug 'vim-scripts/taglist.vim'
+"Plug 'vim-scripts/taglist.vim'
 
+" Icon list
+Plug 'ryanoasis/vim-devicons'
 call plug#end()
 
 " ------------------------------------------------------------
@@ -395,3 +397,7 @@ hi Normal ctermbg=none
 "
 "endfunction
 "nmap <C-e> :call ToggleNerdtreeTagbar()<CR>
+set wrap
+
+set encoding=UTF-8
+set guifont=Inconsolata\ Nerd\ Font\ Complete\ 15
