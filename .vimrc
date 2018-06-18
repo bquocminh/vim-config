@@ -125,13 +125,13 @@ map Y y$
 " next search
 nnoremap <C-L> :nohl<CR><C-L>
 
-" line at 80th col
+" line at 79th col
 if (exists('+colorcolumn'))
-    set colorcolumn=80
+    set colorcolumn=79
     highlight ColorColumn ctermbg=1
 endif
 " Set textwidth
-set textwidth=80
+set textwidth=79
 set linebreak
 set nolist  " list disables linebreak
 set textwidth=0
@@ -240,6 +240,7 @@ Plug 'joshdick/onedark.vim'
 
 " Icon list
 Plug 'ryanoasis/vim-devicons'
+
 call plug#end()
 
 " ------------------------------------------------------------
