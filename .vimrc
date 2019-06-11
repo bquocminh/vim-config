@@ -138,7 +138,7 @@ set textwidth=0
 set wrapmargin=0
 
 " set invi characters
-set listchars=eol:¬,tab:>·,trail:~,extends:>,precedes:<,space:␣
+" set listchars=eol:¬,tab:>·,trail:~,extends:>,precedes:<,space:␣
 
 " set font
 "if has("gui_running")
@@ -382,8 +382,8 @@ hi Normal ctermbg=none
 "  function! ToggleNerdtreeTagbar()
 
 "    " check if NERDTree and Tagbar are opened
-"    let NERDTree_close = (bufwinnr('NERD_tree') == -1) 
-"    let Tagbar_close   = (bufwinnr('__Tagbar__') == -1) 
+"    let NERDTree_close = (bufwinnr('NERD_tree') == -1)
+"    let Tagbar_close   = (bufwinnr('__Tagbar__') == -1)
 "
 "    TagbarToggle
 "    NERDTreeToggle
@@ -401,4 +401,3 @@ hi Normal ctermbg=none
 set wrap
 
 set encoding=UTF-8
-set guifont=Inconsolata\ Nerd\ Font\ Complete\ 15
