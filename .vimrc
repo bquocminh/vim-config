@@ -138,7 +138,7 @@ set textwidth=0
 set wrapmargin=0
 
 " set invi characters
-set listchars=eol:¬,tab:>·,trail:~,extends:>,precedes:<,space:␣
+"set listchars=eol:¬,tab:>·,trail:~,extends:>,precedes:<,space:␣
 
 " set font
 "if has("gui_running")
@@ -401,4 +401,4 @@ hi Normal ctermbg=none
 set wrap
 
 set encoding=UTF-8
-set guifont=Inconsolata\ Nerd\ Font\ Complete\ 15
+"set guifont=Inconsolata\ Nerd\ Font\ Complete\ 15
