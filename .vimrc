@@ -113,6 +113,7 @@ set shiftwidth=4
 set softtabstop=4
 set expandtab
 
+set completeopt=menu
 "------------------------------------------------------------
 " Useful mappings
 
@@ -124,14 +125,13 @@ map Y y$
 " next search
 nnoremap <C-L> :nohl<CR><C-L>
 
-" line at 80th col
+" line at 79th col
 if (exists('+colorcolumn'))
-    set colorcolumn=80
+    set colorcolumn=79
     highlight ColorColumn ctermbg=1
 endif
 " Set textwidth
-set textwidth=80
-set wrap
+set textwidth=79
 set linebreak
 set nolist  " list disables linebreak
 set textwidth=0
@@ -141,20 +141,20 @@ set wrapmargin=0
 set listchars=eol:¬,tab:>·,trail:~,extends:>,precedes:<,space:␣
 
 " set font
-if has("gui_running")
-    if has("gui_gtk3")
-        echo "Linux"
-        set guifont=Inconsolata\ 12
-    elseif has("gui_macvim")
-        echo "Mac OS"
-        set guifont=Menlo\ Regular:h14
-    elseif has("gui_win32")
-        echo "Win"
-        set guifont=Consolas:h14:cANSI
-    endif
-endif
-
-set guifont=Incosolata\ 15
+"if has("gui_running")
+"    if has("gui_gtk3")
+"        echo "Linux"
+"        set guifont=Inconsolata\ 12
+"    elseif has("gui_macvim")
+"        echo "Mac OS"
+"        set guifont=Menlo\ Regular:h14
+"    elseif has("gui_win32")
+"        echo "Win"
+"        set guifont=Consolas:h14:cANSI
+"    endif
+"endif
+"
+"set guifont=Incosolata\ 15
 " ------------------------------------------------------------
 "  Make vim clipboard as system clipboard
 "  only works for MacOS and Windows
@@ -216,7 +216,7 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'edkolev/tmuxline.vim'
 
 " git plugin inside vim
-Plug 'tpope/vim-fugitive'
+"Plug 'tpope/vim-fugitive'
 
 " check code syntax
 Plug 'scrooloose/syntastic'
@@ -225,13 +225,21 @@ Plug 'scrooloose/syntastic'
 "Plug 'Chiel92/vim-autoformat'
 
 " Markdown preview
-Plug 'JamshedVesuna/vim-markdown-preview'
+"Plug 'JamshedVesuna/vim-markdown-preview'
 
 Plug 'ervandew/supertab'
 
 " vim Python
 Plug 'python-mode/python-mode'
 
+" onedark
+Plug 'joshdick/onedark.vim'
+
+" taglist
+"Plug 'vim-scripts/taglist.vim'
+
+" Icon list
+Plug 'ryanoasis/vim-devicons'
 
 call plug#end()
 
@@ -385,3 +393,24 @@ set tw=80
 " ---------------------------------------------------------------------------- "
 set completeopt=menu
 let g:pymode_rope = 0
+"    " check if NERDTree and Tagbar are opened
+"    let NERDTree_close = (bufwinnr('NERD_tree') == -1)
+"    let Tagbar_close   = (bufwinnr('__Tagbar__') == -1)
+"
+"    TagbarToggle
+"    NERDTreeToggle
+"
+"    if NERDTree_close && Tagbar_close
+"        wincmd K
+"        wincmd b
+"        wincmd L
+"        wincmd h
+"        exe 'vertical resize 30'
+"    endif
+"
+"endfunction
+"nmap <C-e> :call ToggleNerdtreeTagbar()<CR>
+set wrap
+
+set encoding=UTF-8
+set guifont=Inconsolata\ Nerd\ Font\ Complete\ 15
